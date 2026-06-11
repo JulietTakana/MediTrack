@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MediTrack - Patient Records Management</title>
+ 
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           background-color: #f4f8fb;
+           margin: 0;
+           padding: 0;
+       }
+ 
+       header {
+           background-color: #0077cc;
+           color: white;
+           padding: 20px;
+           text-align: center;
+       }
+ 
+       nav {
+           background-color: #005fa3;
+           padding: 10px;
+           text-align: center;
+       }
+ 
+       nav a {
+           color: white;
+           text-decoration: none;
+           margin: 15px;
+           font-weight: bold;
+       }
+ 
+       .container {
+           width: 80%;
+           margin: auto;
+           padding: 20px;
+       }
+ 
+       .card {
+           background: white;
+           padding: 20px;
+           margin-top: 20px;
+           border-radius: 10px;
+           box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+       }
+ 
+       footer {
+           background-color: #0077cc;
+           color: white;
+           text-align: center;
+           padding: 15px;
+           margin-top: 20px;
+       }
+ 
+       button {
+           background-color: #0077cc;
+           color: white;
+           border: none;
+           padding: 10px 15px;
+           border-radius: 5px;
+           cursor: pointer;
+       }
+ 
+       button:hover {
+           background-color: #005fa3;
+       }
+   </style>
+</head>
+<body>
+ 
+<header>
+   <h1>MediTrack</h1>
+   <p>Patient Records Management System</p>
+</header>
+ 
+<nav>
+   <a href="#">Home</a>
+   <a href="#">Patients</a>
+   <a href="#">Appointments</a>
+   <a href="#">Reports</a>
+</nav>
+ 
+<div class="container">
+ 
+   <div class="card">
+       <h2>Welcome to MediTrack</h2>
+       <p>
+           MediTrack is a cloud-based patient records management system
+           designed to securely manage patient information, appointments,
+           and medical records.
+       </p>
+   </div>
+ 
+   <div class="card">
+       <h2>System Features</h2>
+       <ul>
+           <li>Patient Registration</li>
+           <li>Patient Record Management</li>
+           <li>Appointment Scheduling</li>
+           <li>Medical History Tracking</li>
+           <li>Secure Cloud Database Storage</li>
+       </ul>
+   </div>
+ 
+   <div class="card">
+       <h2>Patient Records API</h2>
+       <p>Connect to the MediTrack backend services running on ECS and RDS.</p>
+       <button onclick="showMessage()">Test Connection</button>
+   </div>
+ 
+</div>
+ 
+<footer>
+   <p>© 2026 MediTrack | AWS Cloud Deployment Project</p>
+</footer>
+ 
+<script>
+   function showMessage() {
+       alert("MediTrack Backend Connection Successful!");
+   }
+</script>
+ 
+</body>
+</html>
