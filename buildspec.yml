@@ -1,0 +1,32 @@
+version: 0.2
+
+env:
+  shell: bash
+  variables:
+    AWS_DEFAULT_REGION: "us-east-2"
+    S3_BUCKET: "meditrack-bucket"
+git-credential-helper: yes
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing frontend dependencies...
+      - npm install -g npm@latest
+      - npm install
+  build:
+    commands:
+      - echo Building frontend application...
+      - npm run build
+  post_build:
+    commands:
+      - echo Deploying frontend build to S3...
+      - aws s3 cp ./build s3://$S3_BUCKET --recursive
+      - echo Frontend deployment completed successfully.
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build
+  discard-paths: yes
