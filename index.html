@@ -101,7 +101,7 @@
            <li>Patient Record Management</li>
            <li>Appointment Scheduling</li>
            <li>Medical History Tracking</li>
-           <li>Secure Cloud Database Storage </li>
+           <li>Secure Cloud Database Storage</li>
        </ul>
    </div>
  
@@ -118,10 +118,54 @@
 </footer>
  
 <script>
-   function showMessage() {
-       alert("MediTrack Backend Connection Successful!");
-   }
-</script>
+ 
+       
+       function displayDateTime() {
+           let now = new Date();
+ 
+           document.getElementById("dateTime").innerHTML =
+               "Current Date & Time: " + now.toLocaleString();
+       }
+ 
+       // Test API Connection
+       function showMessage() {
+           alert("MediTrack Backend Connection Successful!");
+       }
+ 
+       // Register Patient
+       function registerPatient() {
+ 
+           let patientName =
+               document.getElementById("patientName").value;
+ 
+           let patientId =
+               document.getElementById("patientId").value;
+ 
+           let result =
+               document.getElementById("result");
+ 
+           if (patientName === "" || patientId === "") {
+ 
+               result.innerHTML =
+                   "Please fill in all fields.";
+ 
+               result.style.color = "red";
+ 
+               return;
+           }
+ 
+           result.innerHTML =
+               "Patient Registered Successfully!<br><br>" +
+               "Patient Name: " + patientName +
+               "<br>Patient ID: " + patientId;
+ 
+           result.style.color = "green";
+       }
+ 
+       // Run when page loads
+       displayDateTime();
+ 
+   </script>
  
 </body>
 </html>
