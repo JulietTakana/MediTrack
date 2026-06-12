@@ -1,9 +1,11 @@
 version: 0.2
+ 
 phases:
   build:
     commands:
-    - echo "Packaging static site files"
+      - echo "Packaging static site files"
+ 
 artifacts:
-files:
+  files:
     - index.html
   
