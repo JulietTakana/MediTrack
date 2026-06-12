@@ -6,7 +6,7 @@
  "Effect": "Allow",
  "Principal": "*",
  "Action": "s3:GetObject",
- "Resource": "arn:aws:s3:::meditrack-bucket/*"
+ "Resource": "arn:aws:s3:::meditrack-bucket-943086490909/*"
  }
 ]
 }
