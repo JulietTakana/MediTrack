@@ -1,108 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>MediTrack - Home</title>
-   <style>
-       body {
-           font-family: Arial, sans-serif;
-           background-color: #f4f8fb;
-           margin: 0;
-           padding: 0;
-       }
-       header {
-           background-color: #0077cc;
-           color: white;
-           padding: 20px;
-           text-align: center;
-       }
-       nav {
-           background-color: #005fa3;
-           padding: 10px;
-           text-align: center;
-       }
-       nav a {
-           color: white;
-           text-decoration: none;
-           margin: 15px;
-           font-weight: bold;
-       }
-       .container {
-           width: 80%;
-           margin: auto;
-           padding: 20px;
-       }
-       .card {
-           background: white;
-           padding: 20px;
-           margin-top: 20px;
-           border-radius: 10px;
-           box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-       }
-       footer {
-           background-color: #0077cc;
-           color: white;
-           text-align: center;
-           padding: 15px;
-           margin-top: 20px;
-       }
-       button {
-           background-color: #0077cc;
-           color: white;
-           border: none;
-           padding: 10px 15px;
-           border-radius: 5px;
-           cursor: pointer;
-       }
-       button:hover {
-           background-color: #005fa3;
-       }
-   </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediTrack - Patient Records Management System</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #f4f8fb;
+    }
+
+    header {
+        background-color: #0077cc;
+        color: white;
+        text-align: center;
+        padding: 25px;
+    }
+
+    nav {
+        background-color: #005fa3;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav button {
+        background: transparent;
+        color: white;
+        border: none;
+        margin: 0 15px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    nav button:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        width: 85%;
+        margin: auto;
+        padding: 25px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        margin-top: 20px;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        color: #0077cc;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        margin-left: 20px;
+        line-height: 30px;
+    }
+
+    button.action-btn {
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button.action-btn:hover {
+        background-color: #005fa3;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #0077cc;
+        color: white;
+    }
+
+    footer {
+        background-color: #0077cc;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }
+</style>
+
 </head>
 <body>
+
 <header>
-   <h1>MediTrack</h1>
-   <p>Patient Records Management System</p>
+    <h1>MediTrack</h1>
+    <p>Patient Records Management System</p>
 </header>
 
 <nav>
-   <a href="index.html">Home</a>
-   <a href="patients.html">Patients</a>
-   <a href="appointments.html">Appointments</a>
-   <a href="reports.html">Reports</a>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('patients')">Patients</button>
+    <button onclick="showPage('appointments')">Appointments</button>
+    <button onclick="showPage('reports')">Reports</button>
 </nav>
 
 <div class="container">
-   <div class="card">
-       <h2>Welcome to MediTrack</h2>
-       <p>MediTrack is a cloud-based patient records management system designed to securely manage patient information, appointments, and medical records.</p>
-   </div>
-   <div class="card">
-       <h2>System Features</h2>
-       <ul>
-           <li>Patient Registration</li>
-           <li>Patient Record Management</li>
-           <li>Appointment Scheduling</li>
-           <li>Medical History Tracking</li>
-           <li>Secure Cloud Database Storage</li>
-       </ul>
-   </div>
-   <div class="card">
-       <h2>Patient Records API</h2>
-       <p>Connect to the MediTrack backend services running on ECS and RDS.</p>
-       <button onclick="showMessage()">Test Connection</button>
-   </div>
+
+    <!-- HOME PAGE -->
+    <div id="homePage" class="card">
+        <h2>Welcome to MediTrack</h2>
+
+        <p>
+            MediTrack is a cloud-based patient records management system
+            designed to securely manage patient information, appointments,
+            and medical records using AWS cloud services.
+        </p>
+
+        <br>
+
+        <h2>System Features</h2>
+
+        <ul>
+            <li>Patient Registration</li>
+            <li>Patient Record Management</li>
+            <li>Appointment Scheduling</li>
+            <li>Medical History Tracking</li>
+            <li>Secure Cloud Database Storage</li>
+        </ul>
+
+        <br>
+    </div>
+
+    <!-- PATIENTS PAGE -->
+    <div id="patientsPage" class="card" style="display:none;">
+
+        <h2>Patient Records</h2>
+
+        <p>
+            Click the button below to retrieve patient records
+            from the MediTrack backend.
+        </p>
+
+        <button class="action-btn" onclick="loadPatients()">
+            Load Patient Records
+        </button>
+
+        <table id="patientsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Condition</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- APPOINTMENTS PAGE -->
+    <div id="appointmentsPage" class="card" style="display:none;">
+
+        <h2>Appointments</h2>
+
+        <p>
+            Appointment scheduling and appointment records
+            will be displayed here.
+        </p>
+
+    </div>
+
+    <!-- REPORTS PAGE -->
+    <div id="reportsPage" class="card" style="display:none;">
+
+        <h2>Reports</h2>
+
+        <p>
+            Patient statistics and system reports
+            will be displayed here.
+        </p>
+
+    </div>
+
 </div>
 
 <footer>
-   <p>© 2026 MediTrack | AWS Cloud Deployment Project</p>
+    <p>© 2026 MediTrack | AWS Cloud Deployment Project</p>
 </footer>
 
 <script>
-   function showMessage() {
-       alert("MediTrack Backend Connection Successful!");
-   }
+
+function showPage(page) {
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("patientsPage").style.display = "none";
+    document.getElementById("appointmentsPage").style.display = "none";
+    document.getElementById("reportsPage").style.display = "none";
+
+    if (page === "home") {
+        document.getElementById("homePage").style.display = "block";
+    }
+
+    if (page === "patients") {
+        document.getElementById("patientsPage").style.display = "block";
+    }
+
+    if (page === "appointments") {
+        document.getElementById("appointmentsPage").style.display = "block";
+    }
+
+    if (page === "reports") {
+        document.getElementById("reportsPage").style.display = "block";
+    }
+}
+
+async function loadPatients() {
+
+    try {
+
+        const response = await fetch(
+            "http://YOUR-ECS-PUBLIC-IP:8080/api/patients"
+        );
+
+        const patients = await response.json();
+
+        const tableBody =
+            document.querySelector("#patientsTable tbody");
+
+        tableBody.innerHTML = "";
+
+        patients.forEach(patient => {
+
+            tableBody.innerHTML += `
+                <tr>
+                    <td>${patient.id}</td>
+                    <td>${patient.fullName}</td>
+                    <td>${patient.age}</td>
+                    <td>${patient.gender}</td>
+                    <td>${patient.condition}</td>
+                </tr>
+            `;
+
+        });
+
+    } catch (error) {
+
+        alert(
+            "Unable to connect to the MediTrack backend service."
+        );
+
+        console.error(error);
+    }
+}
+
 </script>
+
 </body>
 </html>
